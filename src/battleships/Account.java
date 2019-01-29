@@ -50,14 +50,14 @@ public class Account {
         	   return;
            }
            
-           PrintWriter save;
+           PrintWriter create;
            try{
-            save = new PrintWriter("Player "+Login+".txt");
-            save.println(Password);
-            save.println(Login);
-            save.println("0");
-            save.println("0");
-            save.close();
+            create = new PrintWriter("Player "+Login+".txt");
+            create.println(Password);
+            create.println(Login);
+            create.println("0");
+            create.println("0");
+            create.close();
 		
             System.out.println("Założono konto, teraz sie zaloguj");
         }

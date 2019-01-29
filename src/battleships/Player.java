@@ -29,31 +29,31 @@ public class Player extends Person{
 						
                     }
 		else
-			System.out.println("Błąd wczytania danych");
+                    System.out.println("Błąd wczytania danych");
         }
             catch (FileNotFoundException e) 
 		 {
-			
-			e.printStackTrace();
+                    //e.printStackTrace();
+                     System.out.println("Nie znaleziono takiego pliku");
 		 }
         }
 	
 	public  int getWins()
 	{
-		return win;
+            return win;
 	}
 	public  void increaseWins()
 	{
-		win++;
+            win++;
 	}
 	
 	public  int getLoose()
 	{
-		return loose;
+            return loose;
 	}
 	public  void increaseLoose()
 	{
-		loose++;
+            loose++;
 	}
     
 }

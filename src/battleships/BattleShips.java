@@ -7,22 +7,26 @@ import java.util.Scanner;
 
 public class BattleShips {
     
+   enum choiceNumber{LOGOWANIE,REJESTRACJA,NOWA_GRA,WCZYTAJ_GRE,STATYSTYKI,WCZYTAJ_SAVE,ZAPIS,WYJSCIE};
    
     public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Asystent gry w statki");
 	    int gameResult;
             
-            EnumChoice.ChooseNumber choiceNumber = EnumChoice.ChooseNumber.ONE;
+            //EnumChoice.ChooseNumber choiceNumber = EnumChoice.ChooseNumber.ZERO;
+            //choiceNumber choice=ZERO;
+            //BattleShips.choiceNumber e=choiceNumber.NOWA_GRA;
 	    boolean still=true;
             
 	    Player player = new Player(FirstStep());
 	    Game game=new Game();
 	    while(still)
 	    {
-                Menu();
-	    //switch (Menu()) {
-                switch(choiceNumber){
-        case ONE:  System.out.println("Nowa gra : ");
+                //Menu();
+	    switch (Menu()) {
+                //switch(e){
+        case 1: 
+        System.out.println("Nowa gra : ");
         game=new Game();
         game.takeShips();
         game.takeComputerShipsTable();
@@ -34,26 +38,26 @@ public class BattleShips {
 
         		break;
                  
-        case TWO:  System.out.println("Wczytaj gre : ");
+        /*case 2:  System.out.println("Wczytaj gre : ");
         		gameResult=game.Battle();
         		if(gameResult==1)
         			player.increaseLoose();
         		else if(gameResult==2)
         			player.increaseWins();
-               break;
-        case THREE:  System.out.println("Statystyki : ");
+               break;*/
+        case 3:  System.out.println("Statystyki : ");
         		WriteStatistics(player);
  				break;
           
-        case FOUR:  System.out.println("Wczytaj save : ");
+        case 4:  System.out.println("Wczytaj save : ");
         		Scanner read = new Scanner(System.in);
         		System.out.println("Podaj nazwe Save:");
         		game=new Game(read.nextLine());
         		break;
-        case FIVE:  System.out.println("Zapisz gre : ");
+        case 5:  System.out.println("Zapisz gre : ");
         		game.saveGame();
         		break;
-        case SIX:  System.out.println("Wyjście");
+        case 6:  System.out.println("Wyjście");
         		still=false;
                         
  				break;
@@ -61,12 +65,11 @@ public class BattleShips {
                  break;
     }
             }
-            System.exit(0); 
     }
     
     public static String FirstStep() throws FileNotFoundException 
 	{
-		int choice = 3;
+		int choice = 0;
 		String Login, Password;
 		int logIn=0;
 		
@@ -103,7 +106,8 @@ public class BattleShips {
   
 	public static int Menu()
 	{
-		Scanner read = new Scanner(System.in); 
+               
+                Scanner read = new Scanner(System.in); 
 		
 		System.out.println("1. Nowa Gra");
 		System.out.println("2. Wczytaj Gre");

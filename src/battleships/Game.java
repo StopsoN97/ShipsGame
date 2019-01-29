@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Game {
         
-        int n = 12, m = 12;
+        private int n = 12, m = 12;
         private final int[][] gamerShips = new int[n][m];
 	private final int[][] gamerShots = new int[n][m];
 	private final int[][] computerShips = new int[n][m];
@@ -255,6 +255,7 @@ public class Game {
 			computerShots[aimPoint.getX()][aimPoint.getY()]=2;
 		}
 		dr.drawBattle(gamerShips, computerShots, gamerShots,n , m);
+               
 		if(computerCounter==20)
 		{
 			System.out.println("PRZEGRANA!!!!!");
@@ -263,10 +264,10 @@ public class Game {
             }
         }
 
-        public void save(PrintWriter save, int [] [] table)
+        public void save(PrintWriter save, int [] [] table,int n, int m)
         {
-            for (int i = 0; i < 12; i++) {
-		for (int j = 0; j < 12; j++) {
+            for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
 			save.print(table[i][j]);
 			save.print(" ");
 		}
@@ -283,20 +284,21 @@ public class Game {
             try {
 		saveGame = new PrintWriter("Player "+record+".txt");
 		
-                save(saveGame,gamerShips);
+                save(saveGame,gamerShips,n,m);
 		
-                save(saveGame,computerShips);
+                save(saveGame,computerShips,n,m);
 		
-                save(saveGame,gamerShots);
+                save(saveGame,gamerShots,n,m);
 		
-                save(saveGame,computerShots);
+                save(saveGame,computerShots,n,m);
 		saveGame.print(gamerCounter);
 		saveGame.print("");
 		saveGame.print(computerCounter);
                 saveGame.close();
             } 
             catch (FileNotFoundException e) {
-		e.printStackTrace();
+		//e.printStackTrace();
+                System.out.println("Nie znaleziono takiego pliku");
             }
         } 
 }

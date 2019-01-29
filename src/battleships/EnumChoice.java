@@ -11,6 +11,6 @@ public class EnumChoice {
     
     public EnumChoice(ChooseNumber choiceNumber){
         this.choiceNumber = choiceNumber;
-    }
+}
     
 }
